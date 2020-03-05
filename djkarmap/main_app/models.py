@@ -64,6 +64,8 @@ class Employer(models.Model):
 class JobOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     searchfor = models.ManyToManyField(Job)
+	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
+	created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
         return self.user.name
