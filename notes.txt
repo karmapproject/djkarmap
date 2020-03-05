@@ -1,1 +1,7 @@
-ECHO is on.
+## configuration
+1) create env from virtualenv
+2) pip install django
+3) pip install gdal wheel 32 available in lib folder
+4) add this setting to django setting file
+GDAL_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/gdal300.dll"
+GEOS_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/geos_c.dll"
