@@ -2,14 +2,11 @@ from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 
 
-
-
 class JobGroup(models.Model):
-    title =  models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
-
 
 
 class Job(models.Model):
@@ -23,7 +20,7 @@ class Job(models.Model):
         (6, "سایر"),
     )
 
-    title =  models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     location = models.PointField(srid=SRID)
     group = models.ForeignKey(JobGroup, on_delete=models.CASCADE)
     job_type = models.PositiveSmallIntegerField(choices=JOB_TYPE)
@@ -33,23 +30,21 @@ class Job(models.Model):
         return self.name
 
 
-
 class Skil(models.Model):
-    title = models.CharField(max_length=100)    
+    title = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.name 
+        return self.name
 
 
 class Employee(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     skils = models.ManyToManyField(Skil)
     searchfor = models.ManyToManyField(Job)
 
     def __str__(self):
         return self.user.name
-
 
 
 class Employer(models.Model):
@@ -60,13 +55,11 @@ class Employer(models.Model):
         return self.user.name
 
 
-
 class JobOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     searchfor = models.ManyToManyField(Job)
-	last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
-	created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
         return self.user.name
-
