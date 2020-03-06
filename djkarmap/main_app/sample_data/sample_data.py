@@ -38,11 +38,26 @@ for i in range(5):
 for i in range(5):
     user = User.objects.all()[i]
     skil = Skil.objects.all()[i]
-    job1 = Job.objects.all()[i:5][1]
-    job2 = Job.objects.all()[i:5][i]
-    skil1 = Skil.objects.all()[i:5][1]
-    skil2 = Skil.objects.all()[i:5][i]
-    employe = Employee(user=user)
-    employe.searchfor.add(job1, job2)
-    employe.skils.add(skil, skil2)
-    employe.save()
+
+    job1 = Job.objects.all()[i]
+    job2 = Job.objects.all()[i]
+    skil1 = Skil.objects.all()[i]
+    skil2 = Skil.objects.all()[i]
+
+    employee = Employee(user=user)
+    
+    employee.save()
+
+    employee.searchfor.add(job1, job2)
+    employee.skils.add(skil1, skil2)
+
+
+for i in range(5):
+    user = User.objects.all()[i]
+    skil = Skil.objects.all()[i]
+    job1 = Job.objects.all()[i]
+    job2 = Job.objects.all()[i]
+    employer = Employer(user=user)    
+    employer.save()    
+    employer.searchfor.add(job1, job2)
+
