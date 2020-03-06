@@ -6,7 +6,7 @@ class JobGroup(models.Model):
     title = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Job(models.Model):
@@ -27,7 +27,7 @@ class Job(models.Model):
     description = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Skil(models.Model):
@@ -35,7 +35,7 @@ class Skil(models.Model):
     description = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Employee(models.Model):
