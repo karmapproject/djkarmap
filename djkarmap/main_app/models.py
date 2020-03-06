@@ -44,7 +44,7 @@ class Employee(models.Model):
     searchfor = models.ManyToManyField(Job)
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
 
 class Employer(models.Model):
@@ -52,7 +52,7 @@ class Employer(models.Model):
     searchfor = models.ManyToManyField(Job)
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
 
 class JobOrder(models.Model):
@@ -62,4 +62,4 @@ class JobOrder(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
