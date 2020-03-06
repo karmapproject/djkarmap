@@ -50,6 +50,7 @@ class Employee(models.Model):
 class Employer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     searchfor = models.ManyToManyField(Job)
+    # TODO skill is requred or not
 
     def __str__(self):
         return self.user.username

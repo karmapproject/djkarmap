@@ -61,3 +61,11 @@ for i in range(5):
     employer.save()    
     employer.searchfor.add(job1, job2)
 
+
+for i in range(5):
+    user = User.objects.all()[i]
+    job1 = Job.objects.all()[i]
+    job2 = Job.objects.all().last()
+    joborder = JobOrder(user=user)
+    joborder.save()
+    joborder.searchfor.add(job1, job2)
