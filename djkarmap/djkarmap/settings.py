@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # add my app
+    'django.contrib.gis',
     'main_app',
 ]
 
