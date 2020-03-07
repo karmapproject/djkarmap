@@ -9,14 +9,6 @@ class JobGroup(models.Model):
         return self.title
 
 
-class Skil(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.title
-
-
 class Employee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.PointField(srid=4326, blank=True, null=True)
@@ -25,6 +17,9 @@ class Employee(models.Model):
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    def __str__(self):
+        return self.user.username
 
 
 class Employer(models.Model):

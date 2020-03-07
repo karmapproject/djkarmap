@@ -21,5 +21,5 @@ class UserProfile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
-        def __str__(self):
-            return self.user.email
+    def __str__(self):
+        return self.user.email

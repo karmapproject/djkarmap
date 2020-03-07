@@ -136,3 +136,5 @@ STATIC_URL = '/static/'
 # TODO add this setting as environment variable in production 
 GDAL_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/gdal300.dll"
 GEOS_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/geos_c.dll"
+
+
