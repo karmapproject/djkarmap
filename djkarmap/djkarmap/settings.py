@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # thired party apps    
+
     # my Project apps
     'django.contrib.gis',
     'accounts',
