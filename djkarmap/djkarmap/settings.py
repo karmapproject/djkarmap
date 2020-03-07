@@ -12,6 +12,19 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+# add spatial libarary
+# TODO add this setting as environment variable in production 
+GDAL_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/gdal300.dll"
+GEOS_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/geos_c.dll"
+
+GDAL_DATA = r"D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/data/gdal"
+PROJ_LIB = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo\data/proj"
+
+os.environ['GDAL_DATA'] = GDAL_DATA
+os.environ['PROJ_LIB'] = PROJ_LIB
+path = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo;"
+os.environ['PATH'] = path + os.environ['PATH']
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,8 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # thired party apps    
-
     # my Project apps
     'django.contrib.gis',
     'accounts',
@@ -132,9 +143,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# add spatial libarary
-# TODO add this setting as environment variable in production 
-GDAL_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/gdal300.dll"
-GEOS_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/geos_c.dll"
+
 
 
