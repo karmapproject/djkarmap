@@ -30,6 +30,7 @@ AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 # Login redirect url ==> Home
 LOGIN_REDIRECT_URL = 'jobs' # todo change to /accounts/profile/
+LOGOUT_REDIRECT_URL = 'home'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
