@@ -33,6 +33,19 @@ class JobTest(TestCase):
         self.assertEqual(expected_object_name, 'just a test of Jub model')
 
 
+class SkillTest:
+
+    def setUp(self):
+        title = 'just a test of Skil model'
+        description = 'just a description test of Skil model'
+
+        Skil.objects.create(title=title, description=description)
+    
+    def test_skill_title(self):
+        skill_title = Skil.objects.get(id=1)
+        expepected_object_name = f'{skill_title}'
+        self.assertEqual(expected_object_name, 'just a test of Skil model')
+
 
 
 
