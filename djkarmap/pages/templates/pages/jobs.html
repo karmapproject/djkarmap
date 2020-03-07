@@ -5,7 +5,7 @@
 
 {% block content %}
     {% for job in all_Jobs %}
-        <div class="post-entry">
+        <div class="job-entry">
             <h2><a href="{% url 'job_detail' job.pk %}">{{ job.title }}</a></h2>
             <p>{{ post.body }}</p>
         </div>
