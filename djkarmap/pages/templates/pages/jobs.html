@@ -1,10 +1,13 @@
 {% extends 'pages/base.html' %}
 
-{% block content %}
+
 <h1>Jobs Page</h1>
-<ul>
+
+{% block content %}
     {% for job in all_Jobs %}
-    <li>{{ job }}</li>
+        <div class="post-entry">
+            <h2><a href="{% url 'job_detail' job.pk %}">{{ job.title }}</a></h2>
+            <p>{{ post.body }}</p>
+        </div>
     {% endfor %}
-</ul>
 {% endblock content %}
