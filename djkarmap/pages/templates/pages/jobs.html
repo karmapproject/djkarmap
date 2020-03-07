@@ -1,9 +1,10 @@
 {% extends 'pages/base.html' %}
+
 {% block content %}
-<h1>Homepage</h1>
+<h1>Jobs Page</h1>
 <ul>
-    {% for post in all_Jobs %}
-    <li>{{ post }}</li>
+    {% for job in all_Jobs %}
+    <li>{{ job }}</li>
     {% endfor %}
 </ul>
 {% endblock content %}
