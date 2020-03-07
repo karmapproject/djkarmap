@@ -1,12 +1,12 @@
 from django.views.generic import TemplateView, ListView
 
-from main_app.models import JobOrder
+from main_app.models import Job
 
 
 class HomePageView(ListView):
-    model = JobOrder
+    model = Job
     template_name = 'pages/home.html'
-    context_object_name = 'all_orders'
+    context_object_name = 'all_Jobs'
 
 
 class AboutPageView(TemplateView):
