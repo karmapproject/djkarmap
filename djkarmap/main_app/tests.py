@@ -1,3 +1,21 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 
-# Create your tests here.
+from .models import Job, JobOrder
+
+# TODO CHECK error in this test
+class JobOrderTest(TestCase):
+
+    def setUp(self):
+        user = User.objects.all().first()
+        job1 = Job.objects.all().first()
+        job2 = Job.objects.all().last()
+        job_order = JobOrder(user=user)
+        job_order.searchfor.add(job1, job2)
+        job_order.save()
+        
+
+    def test_job_order_content(self):
+        job_order = JobOrder.objects.get(id=1)
+        expected_object_name = f'{job_order.user.usernam}'
+        self.assertEqual(expected_object_name, 'jus test for JobOrder model')

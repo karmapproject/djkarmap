@@ -41,7 +41,7 @@ class Skil(models.Model):
 class Employee(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     skils = models.ManyToManyField(Skil)
-    searchfor = models.ManyToManyField(Job)
+    searchfor = models.ManyToManyField(Job) # TODO check for using ForeighKey
 
     def __str__(self):
         return self.user.username
@@ -49,7 +49,7 @@ class Employee(models.Model):
 
 class Employer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    searchfor = models.ManyToManyField(Job)
+    searchfor = models.ManyToManyField(Job) # # TODO check for using ForeighKey
     # TODO skill is requred or not
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Employer(models.Model):
 
 class JobOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    searchfor = models.ManyToManyField(Job)
+    searchfor = models.ManyToManyField(Job) # # TODO check for using ForeighKey
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
