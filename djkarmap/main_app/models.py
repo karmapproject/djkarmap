@@ -58,3 +58,14 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class JobOrder(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+    last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    def __str__(self):
+        return f'{self.user.username}: {self.created.__str__()}'
