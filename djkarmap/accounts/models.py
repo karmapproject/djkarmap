@@ -12,4 +12,4 @@ class UserProfile(AbstractUser):
 
 
     def __str__(self):
-        return 'Profile of user: {}'.format(self.user.username)
+        return 'Profile of user: {}'.format(self.username)
