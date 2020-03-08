@@ -1,6 +1,8 @@
 from django.contrib.gis.db import models
 from accounts.models import UserProfile
 
+from django.urls import reverse
+
 
 class JobGroup(models.Model):
     title = models.CharField(max_length=50)
@@ -53,6 +55,9 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('job_detail', args=[f'{self.id}'])
 
 
 class JobOrder(models.Model):
@@ -64,3 +69,5 @@ class JobOrder(models.Model):
 
     def __str__(self):
         return f'{self.user.username}: {self.created.__str__()}'
+
+
