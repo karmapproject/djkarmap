@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-from django.contrib.auth.models import User
+from accounts.models import UserProfile
 
 
 class JobGroup(models.Model):
@@ -10,7 +10,7 @@ class JobGroup(models.Model):
 
 
 class Employee(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     location = models.PointField(srid=4326, blank=True, null=True)
     gender = models.CharField(choices=(
         ('male', 'Male'), ('female', 'Female'),), max_length=20, blank=True, null=True)
@@ -23,7 +23,7 @@ class Employee(models.Model):
 
 
 class Employer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     location = models.PointField(srid=4326, blank=True, null=True)
     employer_type = models.CharField(choices=(
         ('person', 'Person'), ('company', 'Company'),), max_length=20, blank=True, null=True)
@@ -56,7 +56,7 @@ class Job(models.Model):
 
 
 class JobOrder(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
