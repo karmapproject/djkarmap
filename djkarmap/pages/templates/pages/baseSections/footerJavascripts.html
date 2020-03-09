@@ -1,0 +1,11 @@
+{% load static %}
+{% block footer_javascript %}
+{% block footer_javascript_site %}
+    <script src="{% static 'pages/lib/jquery/js/jquery-3.4.1.slim.min.js' %}"></script>
+    <script src="{% static 'pages/lib/popper/popper.min.js' %}"></script>
+    <script src="{% static 'pages/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+    
+{% endblock footer_javascript_site %}
+{% block footer_javascript_section %}{% endblock footer_javascript_section %}
+{% block footer_javascript_page %}{% endblock footer_javascript_page %}
+{% endblock footer_javascript %}
