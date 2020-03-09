@@ -3,30 +3,11 @@
 <html dir="rtl">
     {# Make modifiable head elements #}
     <head>
-        {% include "pages/baseSections/head.html" %}
+        {% include "pages/base/head.html" %}
     </head>
     <body>
-        <header>             
-            {% include "pages/baseSections/header1.html" %}
-        </header>
-        <header>
-            {% include "pages/baseSections/header2.html" %}
-        </header>
-
-        {# The Document Body #}
-        <div id="site-wrapper">
-            {% block content %}
-                if you see this, something is wrong!
-            {% endblock content %}
-        </div>
-
-        {# The Footer #}
-        <div class="footer">
-            {% include "pages/baseSections/footer.html" %}
-        </div>
+        {% include "pages/base/body.html" %}        
     </body>
-    {# Set of blocks that can be used to display JavaScript files #}
-        {% include "pages/baseSections/footerJavascripts.html" %}
 </html>
 
 
