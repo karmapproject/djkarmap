@@ -18,3 +18,6 @@ class JobPageDetailView(DetailView):
 
 class AboutPageView(TemplateView):
     template_name = 'pages/about.html'
+
+class JustForTestTemplateInherit(TemplateView):
+    template_name = 'pages/login/login.html'
