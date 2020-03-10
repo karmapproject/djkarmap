@@ -1,17 +1,14 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
+from django.db import models
 
 
-class UserProfile(AbstractUser):     
-    
-    user_type = models.CharField(
-        choices=(('Employer', 'Employer'), ('Employee', 'Employee'),), max_length=50)    
-    last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+class CustomUser(AbstractUser):
 
+    EMPLOYEE = 'KJ'
+    EMPLOYER = 'KF'
+    USER_TYPE_CHOICES = [
+        (EMPLOYEE, 'کارجو'),
+        (EMPLOYER, 'کارفرما'),
+    ]
 
-    def __str__(self):
-        return 'Profile of user: {}'.format(self.username)
-
-
+    user_type = models.CharField(choices=USER_TYPE_CHOICES, default=EMPLOYEE, max_length=10)

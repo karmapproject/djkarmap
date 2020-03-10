@@ -25,14 +25,7 @@ os.environ['PROJ_LIB'] = PROJ_LIB
 path = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo;"
 os.environ['PATH'] = path + os.environ['PATH']
 
-# change django default auth to user profile class in accounts app
-# AUTH_PROFILE_MODULE = 'accounts.UserProfile'
-# custom user model for authentication
-AUTH_USER_MODEL = 'accounts.UserProfile'
 
-# Login redirect url ==> Home
-LOGIN_REDIRECT_URL = 'home' # todo change to /accounts/profile/
-LOGOUT_REDIRECT_URL = 'home'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -152,6 +145,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
-
-
+AUTH_USER_MODEL = 'accounts.CustomUser'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
