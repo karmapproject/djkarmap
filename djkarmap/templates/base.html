@@ -21,23 +21,23 @@
     {% block extra_head %}
     {% endblock %}
 </head>
-<body {% block body_id %}{% endblock %} {% block body_class %}{% endblock %}>
+<body>
     {% block extrabody %}
     {% endblock %}
     {% block body %}
         <div id="header">
             {% block header %}
-                {% include "pages/base/header.html" %}
+                {% include "header.html" %}
             {% endblock %}
         </div>
         <div id="content">
             {% block content %}
-                {% include "pages/base/content.html" %}
+                {% include "content.html" %}
             {% endblock %}
         </div>
         <div id="footer">
             {% block footer %}
-                {% include "pages/base/footer.html" %}
+                {% include "footer.html" %}
             {% endblock %}
         </div>
     {% endblock %}
