@@ -1,4 +1,14 @@
-{% include "pages/base/base.html" %}
+{% extends "pages/base/base.html" %}
+
+{% block header %}
+{{ block.super }}
+
+{% if user.is_authenticated %}
+<p>Hi {{ user.username }}!</p>
+{% else %}
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Log In</a>
+{% endif %}
 
 
-
+{% endblock %}

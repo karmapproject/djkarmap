@@ -1,6 +1,12 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 from main_app.models import Job
+
+
+
+
 
 
 class JobPageListView(ListView):
@@ -19,5 +25,17 @@ class JobPageDetailView(DetailView):
 class AboutPageView(TemplateView):
     template_name = 'pages/about.html'
 
-class JustForTestTemplateInherit(TemplateView):
-    template_name = 'pages/login/login.html'
+class LoginView(TemplateView):
+    template_name = 'pages/login.html'
+
+
+class HomePageView(TemplateView):
+    template_name = 'pages/home/home.html'
+
+
+
+class SignUpView(CreateView):
+
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'pages/signup.html'

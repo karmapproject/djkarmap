@@ -31,8 +31,8 @@ os.environ['PATH'] = path + os.environ['PATH']
 AUTH_USER_MODEL = 'accounts.UserProfile'
 
 # Login redirect url ==> Home
-LOGIN_REDIRECT_URL = 'jobs' # todo change to /accounts/profile/
-LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'home' # todo change to /accounts/profile/
+LOGOUT_REDIRECT_URL = 'home'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

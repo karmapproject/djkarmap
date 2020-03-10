@@ -1,9 +1,9 @@
-{% extends 'pages/base.html' %}
+{% extends 'pages/base/base.html' %}
 {% block content %}
 <h2>Sign up</h2>
 <form method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<button type="submit">Sign up</button>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
 </form>
 {% endblock content %}
