@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-
+from accounts.models import CustomUser
 
 
 
@@ -18,7 +18,7 @@ class Employee(models.Model):
         This means that a given user can be the author of many different blog posts
         but not the other way around.
     """
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     location = models.PointField(srid=4326, blank=True, null=True)
     gender = models.CharField(choices=(
         ('male', 'Male'), ('female', 'Female'),), max_length=20, blank=True, null=True)
@@ -31,7 +31,7 @@ class Employee(models.Model):
 
 
 class Employer(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     location = models.PointField(srid=4326, blank=True, null=True)
     employer_type = models.CharField(choices=(
         ('person', 'Person'), ('company', 'Company'),), max_length=20, blank=True, null=True)
@@ -67,7 +67,7 @@ class Job(models.Model):
 
 
 class JobOrder(models.Model):    
-    # user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)

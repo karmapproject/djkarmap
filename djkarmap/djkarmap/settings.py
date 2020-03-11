@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # my Project apps
+    # 3rd Party
+    'crispy_forms',
+    # Project apps
     'django.contrib.gis',
     'accounts',
     'main_app',
@@ -144,7 +146,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+# customize default django User auth
 AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# we’re using Bootstrap4 so we should tell this to crispy form.
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
