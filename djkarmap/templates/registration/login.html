@@ -3,10 +3,15 @@
 
 {% block title %}ورود{% endblock title %}
 {% block content %}
-    <h2>Log In</h2>
-    <form method="post">
+
+
+<div class="container" style="width:50%">
+    <h5> ورود</h5>
+    <form method="post" class="form">
         {% csrf_token %}
         {{ form|crispy }}
-        <button class="btn btn-success ml-2" type="submit">Log In</button>
+        <button class="btn btn-primary" type="submit">ورود</button>
     </form>
+</div>    
+
 {% endblock content %}

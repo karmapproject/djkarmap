@@ -152,6 +152,8 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # we’re using Bootstrap4 so we should tell this to crispy form.
+# activate Django template cache loader
+# TODO In production environments, always activate Django template cache loader.
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for password reset email backend
