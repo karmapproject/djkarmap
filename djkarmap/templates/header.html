@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-md navbar-dark bg-info mb-4">
     <a class="navbar-brand" href="{% url 'home' %}">KARMAP</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,19 +13,19 @@
                     {{ user.username }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-                    <a class="dropdown-item" href="{% url 'password_change'%}">Change password</a>
+                    <a class="dropdown-item" href="{% url 'password_change'%}">تغیر رمز</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'logout' %}">
-                        Log Out</a>
+                        خروج</a>
                 </div>
             </li>
         </ul>
         {% else %}
         <form class="form-inline ml-auto">
-            <a href="{% url 'login' %}" class="btn btn-outline-secondary">
-                Log In</a>
-            <a href="{% url 'signup' %}" class="btn btn-primary ml-2">
-                Sign up</a>
+            <a href="{% url 'login' %}" class="btn btn-danger ml-2">
+                ورود</a>
+            <a href="{% url 'signup' %}" class="btn btn-danger ml-2">
+                ثبت نام</a>
         </form>
         {% endif %}
     </div>
