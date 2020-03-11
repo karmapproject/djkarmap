@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -8,16 +8,16 @@
 
     <title>{% block title %}کارمپ{% endblock %}</title>    
     
-    <link rel="stylesheet" href="{% static 'pages/lib/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'pages/lib/fontawesome/css/all.min.css' %}">  
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'pages/lib/fontawesome/css/all.min.css' %}">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'pages/lib/mdb-pro/css/bootstrap.min.css' %}">    
+      <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static 'pages/lib/mdb-pro/css/mdb.min.css' %}">
     
-
-    <script src="{% static 'pages/lib/jquery/js/jquery-3.4.1.slim.min.js' %}"></script>
-    <script src="{% static 'pages/lib/popper/popper.min.js' %}"></script>
-
-
-    <!-- app level css style -->
-    <link rel="stylesheet" href="{% static 'pages/css/main.css' %}"> 
+    <!-- Karmap custom styles -->
+    <link rel="stylesheet" href="{% static 'pages/css/main.css' %}">    
+     
 
     <style> 
     
@@ -27,15 +27,15 @@
     {% endblock %}
 </head>
 <body>
-    {% block extrabody %}
-    {% endblock %}
+
+  <!-- Karmap Start  here-->
     {% block body %}
         <div id="header">
             {% block header %}
                 {% include "header.html" %}
             {% endblock %}
         </div>
-        <div id="content" class="container">
+        <div id="content">
             {% block content %}
                 {% include "content.html" %}
             {% endblock %}
@@ -45,6 +45,25 @@
                 {% include "footer.html" %}
             {% endblock %}
         </div>
+        {% block extrabody %}        
+        {% endblock %}
     {% endblock %}
+  <!-- End karmap project here-->
+
+    {% block exterascriptend %}
+        <!-- jQuery -->        
+        <script type="text/javascript" src="{% static 'pages/lib/mdb-pro/js/jquery.min.js' %}"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="{% static 'pages/lib/mdb-pro/js/popper.min.js' %}"></script>        
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="{% static 'pages/lib/mdb-pro/js/bootstrap.min.js' %}"></script>        
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="{% static 'pages/lib/mdb-pro/js/mdb.min.js' %}"></script>        
+        <!-- Your custom scripts (optional) -->
+        <script type="text/javascript"></script>
+
+        {% static 'pages/lib/mdb-pro/css/mdb.min.css' %}
+    {% endblock %}
+
 </body>
 </html>

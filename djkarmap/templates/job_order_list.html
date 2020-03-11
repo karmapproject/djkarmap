@@ -1,0 +1,16 @@
+{% for job_order in object_list %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ job_order.job }}</span> &middot;
+        <span class="text-muted">by {{ job_order.user }} |
+            {{ job_order.created }}</span>
+    </div>
+    <div class="card-body">
+        {{ job_order.job }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>
+</div>
+<br />
+{% endfor %}
