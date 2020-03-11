@@ -4,12 +4,33 @@
 
 
 {% block content %}
-    {% if user.is_authenticated %}
-        سلام {{ user.username }}!
-        <p><a href="{% url 'logout' %}">خروج</a></p>
-    {% else %}
-        <p>شما به سیستم وارد نشده اید</p>
-        <a href="{% url 'login' %}">ورود</a> |
-        <a href="{% url 'signup' %}">خروج</a>
-    {% endif %}
+{% if user.is_authenticated %}
+سلام {{ user.username }}!
+<p><a href="{% url 'logout' %}">خروج</a></p>
+{% else %}
+<p>شما به سیستم وارد نشده اید</p>
+<a href="{% url 'login' %}">ورود</a> |
+<a href="{% url 'signup' %}">خروج</a>
+{% endif %}
+
+
+{% for job_order in object_list %}
+<div class="card" dir="rtl">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ job_order.job }}</span> &middot;
+        <span class="text-muted">by {{ job_order.user }} |
+            {{ job_order.created }}</span>
+    </div>
+    <div class="card-body">
+        {{ job_order.job }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>
+</div>
+<br />
+{% endfor %}
+
+
 {% endblock content %}
+
