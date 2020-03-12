@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import JobOrderListView
+from .views import home
 
 
 urlpatterns = [
-    path('', JobOrderListView.as_view(), name='home'),
+    path('', home, name='home'),
 ]

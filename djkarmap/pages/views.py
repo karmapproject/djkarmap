@@ -1,9 +1,20 @@
 
-from django.views.generic import ListView
+from django.shortcuts import render
 
-from main_app.models import JobOrder
+from main_app.models import JobGroup, JobOrder
 
 
-class JobOrderListView(ListView):
-    model = JobOrder
-    template_name = 'home.html'
+
+def home(request):
+    latest_job_groups = JobGroup.objects.all()[:5]
+    latest_job_order = JobOrder.objects.order_by('-created')[:5]
+
+    context = {
+        'latest_job_group': latest_job_groups,
+        'latest_job_order': latest_job_order,
+
+    }
+
+    return render(request, 'home.html', context)
+
+
