@@ -29,8 +29,7 @@
 </head>
 <body>
 
-  <!-- Karmap Start  here-->
-
+  <!-- Karmap Start  here-->  
     {% block body %}
         <div id="header">
             {% block header %}
@@ -38,9 +37,9 @@
             {% endblock %}
         </div>
         <div id="content">
-            {% block content %}
-                {% include "content.html" %}
-            {% endblock %}
+                {% block content %}
+                    {% include "content.html" %}
+                {% endblock %}
         </div>
         <div id="footer">
             {% block footer %}
