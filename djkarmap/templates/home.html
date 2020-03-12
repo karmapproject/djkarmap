@@ -5,14 +5,13 @@
 {% block content %}    
     {% include "carousel.html" %}
     {% include "job_order_list.html" %}
-
-    {% block exterascriptend %}
-        {{ block.super }}        
-        {% include "carousel_script.html" %}
-    {% endblock exterascriptend %}
 {% endblock content %}
 
 
+{% block exterascriptend %}
+    {{ block.super }}        
+    {% include "carousel_script.html" %}
+{% endblock exterascriptend %}
 
 
 
