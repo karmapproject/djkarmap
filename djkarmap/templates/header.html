@@ -1,3 +1,79 @@
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="{% url 'home' %}">کارمپ</a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">      
+
+        {% if user.is_authenticated %}
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">خانه
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">پنل کاربری</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">جست و جوی شغل خدمت</a>
+            </li>
+  
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">پروفایل</a>                    
+                    <a class="dropdown-item" href="#">درخواست</a>
+                    <a class="dropdown-item" href="{% url 'password_change'%}">تغییر رمز عبور</a>
+                    <a class="dropdown-item" href="{% url 'logout'%}">خروج</a>
+                </div>
+            </li>
+  
+        </ul>
+        <!-- Links -->
+        {% else %}
+         <!-- Links -->
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home'%}">خانه
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">جست و جوی شغل</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login'%}">ورود</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup'%}">ثبت نام</a>
+            </li>
+  
+        </ul>
+        <!-- Links -->       
+        {% endif %}       
+    </div>
+    <!-- Collapsible content -->
+  
+  </nav>
+  <!--/.Navbar-->
+
+
+
+
+<!-- 
+
 <nav class="navbar navbar-expand-md navbar-dark bg-info mb-4">
     <a class="navbar-brand" href="{% url 'home' %}">KARMAP</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -29,4 +105,4 @@
         </form>
         {% endif %}
     </div>
-</nav>
+</nav> -->
