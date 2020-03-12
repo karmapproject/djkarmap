@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}خانه{% endblock title %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'pages/lib/swiper/css/swiper.min.css' %}">
+{% endblock %}
+
 
 {% block content %}    
     {% include "carousel.html" %}
@@ -9,10 +16,11 @@
 
 
 {% block exterascriptend %}
-    {{ block.super }}        
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'pages/lib/swiper/js/swiper.min.js' %}"></script>         
     {% include "carousel_script.html" %}
+    
 {% endblock exterascriptend %}
-
 
 
 

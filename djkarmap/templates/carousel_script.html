@@ -1,19 +1,18 @@
+<!-- Initialize Swiper -->
 <script>
-    // Js code handelling carousel
-    $('.carousel.carousel-multi-item.job-group .carousel-item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-        next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
-
-    for (var i=0;i<4;i++) {
-        next=next.next();
-        if (!next.length) {
-        next=$(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-    }
+    var swiper = new Swiper('.swiper-container', {
+    speed: 400,
+    spaceBetween: 20,     
+      slidesPerView: 5,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+          // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
     });
-
-</script>
+  </script>
