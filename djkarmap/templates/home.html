@@ -6,6 +6,7 @@
 {% block extra_head %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static 'pages/lib/swiper/css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'pages/lib/leaflet/leaflet.css' %}">
 {% endblock %}
 
 
@@ -19,7 +20,9 @@
 {% block exterascriptend %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'pages/lib/swiper/js/swiper.min.js' %}"></script>         
+    <script type="text/javascript" src="{% static 'pages/lib/leaflet/leaflet.js' %}"></script>         
     {% include "carousel_script.html" %}
+    {% include "map_section_script.html" %}
     
 {% endblock exterascriptend %}
 
