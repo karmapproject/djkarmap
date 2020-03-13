@@ -14,15 +14,15 @@ import os
 
 # add spatial libarary
 # TODO add this setting as environment variable in production 
-GDAL_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/gdal300.dll"
-GEOS_LIBRARY_PATH = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo/geos_c.dll"
+GDAL_LIBRARY_PATH = "D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/gdal300.dll"
+GEOS_LIBRARY_PATH = "D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/geos_c.dll"
 
-GDAL_DATA = r"D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/data/gdal"
-PROJ_LIB = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo\data/proj"
+GDAL_DATA = "D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/data/gdal"
+PROJ_LIB = "D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/data/proj"
 
 os.environ['GDAL_DATA'] = GDAL_DATA
 os.environ['PROJ_LIB'] = PROJ_LIB
-path = r"D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo;"
+path = "D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo;"
 os.environ['PATH'] = path + os.environ['PATH']
 
 

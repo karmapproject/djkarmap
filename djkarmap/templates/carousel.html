@@ -1,11 +1,16 @@
-<div class="container">  
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      {% for job_group in latest_job_group %}
-      <div class="swiper-slide btn btn-primary"> {{ job_group }} </div>
-      {% endfor %}
-    </div>
-    <!-- If we need navigation buttons -->
-  </div>  
+<div class="container">
+  <div class="row">    
+    <div class="col-10">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {% for job_group in latest_job_group %}
+          <div class="swiper-slide btn btn-info"> {{ job_group }} </div>
+          {% endfor %}
+        </div>
+        <!-- If we need navigation buttons -->
+      </div>
+    </div>    
+  </div>
 </div>
-<!-- Swiper --
+
+  
