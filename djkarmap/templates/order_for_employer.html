@@ -1,0 +1,23 @@
+
+<br>
+<hr>
+{% for job_order in latest_job_order %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ job_order.job }}</span> |
+        <span class="text-muted"> توسط {{ job_order.user }}  |
+            {{ job_order.created|timesince }}</span>|
+    </div>
+    <div class="card-body">
+        {{ job_order.job }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="#">نمایش روی نقشه</a> | <a href="#">مشاهده جزئیات و درخواست</a>
+    </div>    
+</div>
+<br>
+{% empty %}
+    <li>متاسفانه هنوز درخواستی در سیستم ثبت نشده است</li>
+<br />
+
+{% endfor %}
