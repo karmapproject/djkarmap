@@ -27,7 +27,7 @@ class Employee(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return self.user
+        return self.user.email
 
 
 class Employer(models.Model):
@@ -42,7 +42,7 @@ class Employer(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        return self.user
+        return self.user.email
 
 
 class Job(models.Model):
