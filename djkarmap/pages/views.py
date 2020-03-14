@@ -6,7 +6,7 @@ from main_app.models import JobGroup, JobOrder
 
 
 def home(request):
-    latest_job_groups = JobGroup.objects.all()[:5]
+    latest_job_groups = JobGroup.objects.all()
     latest_job_order = JobOrder.objects.order_by('-created')[:5]
 
     context = {

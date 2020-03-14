@@ -2,20 +2,18 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-2">
-      <button type="button" class="btn">عقب</button>
-    </div>
-    <div class="col-8">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          {% for job_group in latest_job_group %}
-          <div class="swiper-slide btn btn-info"> {{ job_group }} </div>
-          {% endfor %}
-        </div>
+    <!-- Swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for job_group in latest_job_group %}
+        <div class="swiper-slide">{{ job_group }}</div>
+        {% endfor %}
       </div>
+      <!-- Add Pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+      <!-- Add Arrows -->
+      <!-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> -->
     </div>
-    <div class="col-2">
-      <button type="button" class="btn">جلو</button>
-    </div>      
   </div>
 </div>
