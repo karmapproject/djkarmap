@@ -31,11 +31,11 @@ class Employee(models.Model):
         blank=True,
         choices=EDUCATION_CHOICES,
     )
-    thumb = models.ImageField(upload_to='employee/thumb', blank=True)
+    thumb = models.ImageField(default= 'default-thumb.jpeg', upload_to='employee/thumb', blank=True)
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    image = models.ImageField(default='default.png',
+    image = models.ImageField(default='default.jpg',
                               blank=True, upload_to='employee')
 
     location = models.PointField(srid=4326, blank=True, null=True)

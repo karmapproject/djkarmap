@@ -37,3 +37,9 @@
 </div> 
 
 {% endblock %}
+
+
+{% block exterascriptend %}
+  {{ block.super }}
+  {% include "profile/profile_scripts.html" %}
+{% endblock %}

@@ -1,4 +1,4 @@
-from django import forms
+from django.contrib.gis import forms
 from main_app.models import Employee
 
 
@@ -8,5 +8,6 @@ class EmployeeForm(forms.ModelForm):
         model = Employee
         exclude = ['is_active', 'user', 'thumb', ]
         widgets = {
-            'birth_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type': 'date'}),
+            'birth_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class': 'datepicker'}),
+           
         }
