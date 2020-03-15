@@ -24,6 +24,7 @@ def home(request):
 def profile(request):
 
     if request.method == 'POST':
+        print(request.user.get_full_name())
 
         form = EmployeeForm(request.POST, request.FILES)
         
