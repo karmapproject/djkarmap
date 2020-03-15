@@ -5,4 +5,4 @@ class EmployeeForm(ModelForm):
     
     class Meta:
         model = Employee
-        exclude = ['is_active',] # '__all__'
+        exclude = ['is_active', 'user',] # '__all__'

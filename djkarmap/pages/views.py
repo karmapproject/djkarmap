@@ -28,7 +28,8 @@ def profile(request):
         form = EmployeeForm(request.POST, request.FILES)
         
         if form.is_valid():            
-            employee= form.save(commit=False) 
+            employee= form.save(commit=False)
+            employee.user = request.user 
             # post.author = request.user
             employee.save()           
             return HttpResponseRedirect('/form_saved_page/')
