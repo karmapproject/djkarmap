@@ -49,7 +49,7 @@ class Employee(models.Model):
         super(Employee, self).save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        from recruit.utils import delete_from_s3
+        from main_app.utils import delete_from_s3
         delete_from_s3([self.image, self.thumb])
         super(Employee, self).delete(*args, **kwargs)
 
