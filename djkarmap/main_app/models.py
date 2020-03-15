@@ -3,6 +3,8 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+from main_app.choices import GENDER_CHOICES, EDUCATION_CHOICES
+
 
 class JobGroup(models.Model):
     title = models.CharField(max_length=50)
@@ -19,23 +21,37 @@ class Employee(models.Model):
     user = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE
     )
-    location = models.PointField(srid=4326, blank=True, null=True)
-    gender = models.CharField(choices=(
-        ('male', 'مرد'), ('female', 'زن'),), max_length=20, blank=True, null=True)
+    # phoneNumber = == >
+    gender = models.CharField(choices=GENDER_CHOICES,
+                              max_length=20, blank=True, null=True)
 
-    date_of_birth = models.DateField()
-	education = models.CharField(
-			max_length=25,
-			blank=True,
-			choices=EDUCATION_CHOICES,
-		)   
+    birth_date = models.DateField(blank=True, null=True)
+    education = models.CharField(
+        max_length=25,
+        blank=True,
+        choices=EDUCATION_CHOICES,
+    )
+    thumb = models.ImageField(upload_to='employer/thumb', blank=True)
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    image = models.ImageField(default='', blank=True, upload_to='employee')
+    image = models.ImageField(default='default.png',
+                              blank=True, upload_to='employee')
+
+    location = models.PointField(srid=4326, blank=True, null=True)
 
     def __str__(self):
         return self.user.email
+
+    def save(self, *args, **kwargs):
+        from main_app.utils import generate_thumbnail
+        self.thumb = generate_thumbnail(self.image)
+        super(Employee, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        from recruit.utils import delete_from_s3
+        delete_from_s3([self.image, self.thumb])
+        super(Employee, self).delete(*args, **kwargs)
 
 
 class Employer(models.Model):
@@ -71,16 +87,16 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         return reverse('job_detail', args=[f'{self.id}'])
 
 
-class JobOrder(models.Model):    
+class JobOrder(models.Model):
     user = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE
     )
-    
+
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
