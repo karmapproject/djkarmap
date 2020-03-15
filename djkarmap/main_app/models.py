@@ -25,6 +25,7 @@ class Employee(models.Model):
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    image = models.ImageField(default='', blank=True, upload_to='employee')
 
     def __str__(self):
         return self.user.email
