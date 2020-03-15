@@ -21,8 +21,6 @@ def home(request):
 
 
 
-
-
 def profile(request):
 
     if request.method == 'POST':
@@ -38,7 +36,7 @@ def profile(request):
     else:
         form = EmployeeForm()
 
-    return render(request, 'profile/employer_form.html', {'form': form})
+    return render(request, 'profile/profile.html', {'form': form})
 
 
 
