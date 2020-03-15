@@ -1,5 +1,7 @@
 # my media folder
 media/
+*.png 
+*.jpeg
 
 # my lib folder
 libs/

@@ -31,7 +31,7 @@ class Employee(models.Model):
         blank=True,
         choices=EDUCATION_CHOICES,
     )
-    thumb = models.ImageField(upload_to='employer/thumb', blank=True)
+    thumb = models.ImageField(upload_to='employee/thumb', blank=True)
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
