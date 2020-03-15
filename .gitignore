@@ -1,4 +1,7 @@
 # my lib folder
+.media/
+
+# my lib folder
 libs/
 
 # vscode config
