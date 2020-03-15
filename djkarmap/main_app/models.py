@@ -22,6 +22,13 @@ class Employee(models.Model):
     location = models.PointField(srid=4326, blank=True, null=True)
     gender = models.CharField(choices=(
         ('male', 'مرد'), ('female', 'زن'),), max_length=20, blank=True, null=True)
+
+    date_of_birth = models.DateField()
+	education = models.CharField(
+			max_length=25,
+			blank=True,
+			choices=EDUCATION_CHOICES,
+		)   
     is_active = models.BooleanField(default=True)
     last_modified = models.DateTimeField(auto_now_add=False, auto_now=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
