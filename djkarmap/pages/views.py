@@ -27,9 +27,9 @@ def profile(request):
 
     if request.method == 'POST':
 
-        form = EmployeeForm(request.POST)
+        form = EmployeeForm(request.POST, request.FILES)
         
-        if form.is_valid():
+        if form.is_valid():            
             employee= form.save(commit=False) 
             # post.author = request.user
             employee.save()           
