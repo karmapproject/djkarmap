@@ -6,7 +6,9 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for job_group in latest_job_group %}
-        <div class="swiper-slide">{{ job_group }}</div>
+        <!-- <div class="swiper-slide">{{ job_group }}</div> -->
+        <div class="btn btn-info">{{ job_group }}</div>
+
         {% endfor %}
       </div>
       <!-- Add Pagination -->

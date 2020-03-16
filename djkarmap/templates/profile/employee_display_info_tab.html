@@ -1,0 +1,95 @@
+
+
+<!-- its equal hasattr(request.user, 'employee') mean user complete profile info -->
+ {% if request.user.employee %}
+<div class="card testimonial-card">
+    <!--Background color-->
+    <div class="card-up info-color"></div>
+    <!--Avatar-->
+    <div class="avatar mx-auto white">
+    <img src="{{ request.user.employee.thumb.url }}" class="rounded-circle img-fluid">
+    </div>
+    <div class="card-body">
+    <!--Name-->
+    <h4 class="font-weight-bold mb-4">{{ user.get_full_name }}</h4>
+    <hr>
+    <!--Quotation-->
+    <p class="dark-grey-text mt-4"><i class="fa fa-quote-left pr-2"></i>
+        علاقه مند به آموزش فناوریهای مکانی
+    </p>
+
+    <p> {{ user.get_full_name }} </p>
+
+    <p> {{ user.get_user_type_display }}</p>
+
+    <p> {{ user.employee.get_gender_display }} </p>
+    <p> {{ user.employee.get_education_display }} </p>
+    <p> {{ user.employee.image.url }} </p>
+    <p> {{ user.employee.birth_date }}</p>
+    <p> {{ user.employee.location }} </p>
+
+  
+    </div>
+
+
+
+</div>
+<!--Card-->        
+ {% else %}
+    <p> {{ request.user.get_full_name }}: </p>
+   <p> ابتدا مشخصاتخود را تکمیل کنید. </p>
+  
+ {% endif %}
+
+
+
+
+
+
+
+
+
+ <!-- Horizontal Steppers -->
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- Stepers Wrapper -->
+    <ul class="stepper stepper-horizontal">
+
+      <!-- First Step -->
+      <li class="completed">
+        <a href="#!">
+          <span class="circle">1</span>
+          <span class="label">First step</span>
+        </a>
+      </li>
+
+      <!-- Second Step -->
+      <li class="active">
+        <a href="#!">
+          <span class="circle">2</span>
+          <span class="label">Second step</span>
+        </a>
+      </li>
+
+      <!-- Third Step -->
+      <li class="warning">
+        <a href="#!">
+          <span class="circle"><i class="fas fa-exclamation"></i></span>
+          <span class="label">Third step</span>
+        </a>
+      </li>
+
+    </ul>
+    <!-- /.Stepers Wrapper -->
+
+  </div>
+</div>
+<!-- /.Horizontal Steppers -->
+
+
+    
+
+
+
+

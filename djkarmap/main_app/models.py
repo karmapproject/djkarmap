@@ -15,10 +15,11 @@ class JobGroup(models.Model):
 
 class Employee(models.Model):
     """ 
+        ForignKey==>
         This means that a given user can be the author of many different blog posts
         but not the other way around.
     """
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         get_user_model(), on_delete=models.CASCADE
     )
     # phoneNumber = == >
@@ -55,7 +56,7 @@ class Employee(models.Model):
 
 
 class Employer(models.Model):
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         get_user_model(), on_delete=models.CASCADE
     )
     location = models.PointField(srid=4326, blank=True, null=True)
@@ -70,6 +71,7 @@ class Employer(models.Model):
 
 
 class Job(models.Model):
+
     JOB_TYPE = (
         (1, "تمام وقت"),
         (2, "پاره وقت"),
@@ -77,6 +79,9 @@ class Job(models.Model):
         (4, "کارآموزی"),
         (5, "توافقی"),
         (6, "سایر"),
+    )
+    user = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE
     )
     title = models.CharField(max_length=100)
     group = models.ForeignKey(JobGroup, on_delete=models.CASCADE)

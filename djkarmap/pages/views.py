@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from main_app.models import JobGroup, JobOrder
+from main_app.models import JobGroup, JobOrder, Employee
 from main_app.forms import EmployeeForm
 
 
@@ -22,9 +22,7 @@ def home(request):
 
 
 def profile(request):
-
-    if request.method == 'POST':
-        print(request.user.get_full_name())
+    if request.method == 'POST':      
 
         form = EmployeeForm(request.POST, request.FILES)
         
@@ -33,7 +31,8 @@ def profile(request):
             employee.user = request.user 
             # post.author = request.user
             employee.save()           
-            return HttpResponseRedirect('/form_saved_page/')
+            # return HttpResponseRedirect('/form_saved_page/')
+            # print(request.POST)
     
     else:
         form = EmployeeForm()
