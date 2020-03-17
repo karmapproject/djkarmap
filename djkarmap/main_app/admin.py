@@ -12,5 +12,5 @@ admin.site.register(JobOrder)
 
 
 @admin.register(Employee)
-class ShopAdmin(admin.OSMGeoAdmin):
-    list_display = ('user', 'location', 'employee_type')
+class EmployeeAdmin(admin.OSMGeoAdmin):
+    list_display = ('user', 'gender', 'birth_date', 'education', 'is_active',)

@@ -1,0 +1,23 @@
+<br>
+<h1></h1>
+<hr>
+{% for near_job_order in nearest_jobs_order %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ near_job_order.job }}</span> |
+        <span class="text-muted"> توسط {{ near_job_order.user }}  |
+            {{ near_job_order.created|timesince }}</span>|
+    </div>
+    <div class="card-body">
+        {{ near_job_order.job }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="#">نمایش روی نقشه</a> | <a href="#">مشاهده جزئیات و درخواست</a>
+    </div>    
+</div>
+<br>
+{% empty %}
+    <li>متاسفانه هنوز درخواستی در سیستم ثبت نشده است</li>
+<br />
+
+{% endfor %}
