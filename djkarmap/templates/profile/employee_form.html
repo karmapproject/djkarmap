@@ -1,4 +1,11 @@
 {% load crispy_forms_tags %}
+
+{% if request.user.employee %}
+
+<p> اطلاعات قبلا تکمیل شده بنابراین لازم نیست فیلدها نمایش داده شوند </p>
+
+{% else %}
+
 <div class="container">
   <div class="row">
     <form id="employee_info" method="post" enctype="multipart/form-data">
@@ -9,7 +16,7 @@
   </div>
 </div>
 
-
+{% endif %}
 
 
 
