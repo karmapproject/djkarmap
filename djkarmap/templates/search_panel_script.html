@@ -19,9 +19,16 @@
 
             
 
-            searched_feature = L.geoJSON(jobs).bindPopup(function (layer){
+            searched_feature = L.geoJSON(jobs, {
+                // be cause api sed data as lat long, and leaflet parse it as long lat for geojson
+                // mabe its not best practice
+                pointToLayer: function(geoJsonPoint, latlng) {
+                    return L.marker([latlng.lng, latlng.lat]);
+                }
+            }).bindPopup(function (layer){
                 return layer.feature.properties.title;
             });
+            // if there is no job bound raise error
             map.fitBounds(searched_feature.getBounds());
             map.addLayer(searched_feature);
 
