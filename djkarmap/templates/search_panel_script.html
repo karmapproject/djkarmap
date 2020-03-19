@@ -1,23 +1,39 @@
 <script>
     // Material Select Initialization
     $(document).ready(function () {
+
+        // global var
+        var searched_feature;
+
         $('.mdb-select').materialSelect();
 
-        var url = 'http://localhost:8000/api/job/'
-        var searched_feature;
+
+
         $('#btn_search_submit').click(function(){
+            // TODO form validation befor submit
+            
+
+            var baseUrl = 'http://localhost:8000/api/job_search/'
+            var searched_feature;
+            var selected_group = $('#selected_group').val(); // return text
+            var selected_user_type = $('#selected_user_type').val();
+
+            var url = baseUrl + selected_group + "/" + selected_user_type;                      
+
+            // TODO handelling response status code
+            // TODO cach data for 5 minute using redis or ...
+            // TODO prevent send request if form values not changed 
             $.get(url, function(data){
                 displayGeoData(data);                
             })
+
         });
 
         function displayGeoData(jobs) {
             // if layer added removed befor add new search
             if (searched_feature){
                 map.removeLayer(searched_feature);                
-            } 
-
-            
+            }            
 
             searched_feature = L.geoJSON(jobs, {
                 // be cause api sed data as lat long, and leaflet parse it as long lat for geojson
