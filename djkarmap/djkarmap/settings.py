@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 3rd Party
+    'rest_framework',
     'crispy_forms',
     # Project apps
     'django.contrib.gis',
