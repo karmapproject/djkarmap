@@ -4,18 +4,17 @@
         $('.mdb-select').materialSelect();
 
         var url = 'http://localhost:8000/api/job/'
+        var searched_feature;
         $('#btn_search_submit').click(function(){
             $.get(url, function(data){
-                displayGeoData(data);
-                
+                displayGeoData(data);                
             })
         });
 
         function displayGeoData(jobs) {
             var i;
             for (i = 0; i < jobs.length; i ++) {
-                L.geoJson(jobs[i].location).addTo(map);
-                
+                L.geoJson(jobs[i].location).addTo(map);                
             }
 
         }
