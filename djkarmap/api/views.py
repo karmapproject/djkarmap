@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from main_app.models import JobGroup
+
+from .serializers import JobGroupSerializer
+
+
+
+class JobGroupApiView(generics.ListAPIView):
+    
+    queryset = JobGroup.objects.all()
+    serializer_class = JobGroupSerializer
+

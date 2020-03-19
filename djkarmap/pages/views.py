@@ -33,7 +33,7 @@ def home(request):
 
 
 nearest_jobs_order = JobOrder.objects.all()
-print(nearest_jobs_order)
+# print(nearest_jobs_order)
 # nearest_jobs_order = JobOrder.objects.annotate(distance=Distance('job__location',
 #     user_location)).order_by('distance')[0:10]
 
