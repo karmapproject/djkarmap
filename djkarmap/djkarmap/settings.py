@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # add spatial libarary
-# TODO add this setting as environment variable in production 
+# TODO add this setting as environment variable in production
 GDAL_LIBRARY_PATH = "D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/gdal300.dll"
 GEOS_LIBRARY_PATH = "D:/poje/koocho_projects/karmap/venv/Lib/site-packages/osgeo/geos_c.dll"
 
@@ -24,7 +24,6 @@ os.environ['GDAL_DATA'] = GDAL_DATA
 os.environ['PROJ_LIB'] = PROJ_LIB
 path = "D:/poje/koocho_projects/karmap/venv/Lib\site-packages/osgeo;"
 os.environ['PATH'] = path + os.environ['PATH']
-
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -45,7 +44,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [    
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,18 +53,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd Party
     'rest_framework',
+    'rest_framework_gis',
     'crispy_forms',
+    'corsheaders',
     # Project apps
     'django.contrib.gis',
     'accounts',
     'main_app',
     'pages',
-    
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # add by myself
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -100,7 +102,7 @@ WSGI_APPLICATION = 'djkarmap.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'djkarmap_db',                      
+        'NAME': 'djkarmap_db',
         'USER': 'postgres',
         'PASSWORD': '123456789',
         'HOST': 'localhost',
@@ -131,9 +133,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'fa' #'en-us'
+LANGUAGE_CODE = 'fa'  # 'en-us'
 
-TIME_ZONE = 'Asia/Tehran' # 'UTC'
+TIME_ZONE = 'Asia/Tehran'  # 'UTC'
 
 USE_I18N = True
 
@@ -161,3 +163,18 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # for password reset email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# django rest framwork configuration
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
+
+# config for cors lib
+CORS_ORIGIN_WHITELIST = (
+    # 'http://127.0.0.1:3000', # for my front React
+    'http://127.0.0.1:8000', # form my backend Django
+)

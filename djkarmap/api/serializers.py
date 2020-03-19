@@ -1,11 +1,11 @@
 
 from rest_framework import serializers
 
-from main_app.models import JobGroup
+from main_app.models import Job
 
 
-class JobGroupSerializer(serializers.ModelSerializer):
+class JobSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = JobGroup
-        fields = ('title',)
+        model = Job
+        fields =  '__all__'

@@ -2,5 +2,13 @@
     // Material Select Initialization
     $(document).ready(function () {
         $('.mdb-select').materialSelect();
+
+        var url = 'http://localhost:8000/api/job_group/'
+        $('#btn_search_submit').click(function(){
+            $.get(url, function(data){
+                console.log(map);
+            })
+        });
+    
     });
 </script>
