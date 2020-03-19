@@ -3,12 +3,22 @@
     $(document).ready(function () {
         $('.mdb-select').materialSelect();
 
-        var url = 'http://localhost:8000/api/job_group/'
+        var url = 'http://localhost:8000/api/job/'
         $('#btn_search_submit').click(function(){
             $.get(url, function(data){
-                console.log(map);
+                displayGeoData(data);
+                
             })
         });
+
+        function displayGeoData(jobs) {
+            var i;
+            for (i = 0; i < jobs.length; i ++) {
+                L.geoJson(jobs[i].location).addTo(map);
+                
+            }
+
+        }
     
     });
 </script>
