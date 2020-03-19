@@ -22,7 +22,9 @@
             searched_feature = L.geoJSON(jobs).bindPopup(function (layer){
                 return layer.feature.properties.title;
             });
+            map.fitBounds(searched_feature.getBounds());
             map.addLayer(searched_feature);
+
 
 
            
