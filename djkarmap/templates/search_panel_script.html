@@ -12,11 +12,21 @@
         });
 
         function displayGeoData(jobs) {
-            var i;
-            for (i = 0; i < jobs.length; i ++) {
-                L.geoJson(jobs[i].location).addTo(map);                
-            }
+            // if layer added removed befor add new search
+            if (searched_feature){
+                map.removeLayer(searched_feature);                
+            } 
 
+            
+
+            searched_feature = L.geoJSON(jobs).bindPopup(function (layer){
+                return layer.feature.properties.title;
+            });
+            map.addLayer(searched_feature);
+
+
+           
+            
         }
     
     });
