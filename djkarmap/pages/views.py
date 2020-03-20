@@ -10,7 +10,6 @@ from main_app.models import JobGroup, JobOrder, Employee
 from main_app.forms import EmployeeForm
 
 
-
 user_lon = 51.3
 user_lat = 35.7
 user_location = Point(user_lon, user_lat, srid=4326)
@@ -24,8 +23,7 @@ def home(request):
 
     context = {
         'latest_job_group': latest_job_groups,
-        'latest_job_order': latest_job_order,
-       
+        'latest_job_order': latest_job_order,       
     }
 
     return render(request, 'home.html', context)

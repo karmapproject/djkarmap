@@ -8,7 +8,6 @@
     <!--Card content-->
     <div class="card-body px-lg-5 pt-0">
 
-        
         <!-- Search form -->
         <div class="form">
 
@@ -16,15 +15,14 @@
             <div class="md-form">
                 <input type="text" id="form1" class="form-control">
                 <label for="form1">کلید واژه جست و جو (مثلا: کارگر)</label>
-            </div>            
+            </div>    
 
             <select id="selected_group" class="mdb-select md-form" searchable="جست و جو..">
-                <option value="" disabled selected>گروه شغلی</option>
-                <option value="1">مکانیکی</option>
-                <option value="2">برنامه نویسی</option>
-                <option value="3">سرایدار</option>
-                <option value="4">نگهبان</option>
-                <option value="5">نقاش</option>
+                <option value="" disabled selected>گروه شغلی</option>                
+                {% for job_group in latest_job_group %}                
+                    <option value="{{ job_group.id }}">{{ job_group }}</option>
+                {% endfor %}
+                
             </select>
             <select id="selected_user_type" class="mdb-select md-form">               
                 <option value="1"> کارجو هستم</option>
